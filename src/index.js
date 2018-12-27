@@ -7,17 +7,33 @@ import { render } from "react-dom";
 
 class Button extends React.Component {
   render() {
-    return <a href="">Salvar</a>;
+    // Primeira forma de receber propriedades
+    // return <a href="">{this.props.title}</a>;
+
+    // Segunda forma de receber propriedades
+    return (
+      <a href="" onClick={this.props.onClick}>
+        {this.props.children}
+      </a>
+    );
   }
 }
 
 class App extends React.Component {
+  handleClick() {
+    alert("Botão clicado");
+  }
+
   render() {
     return (
       // NOTA_ESTUDO: Quando o componente tem mais de uma linha, o React obriga estar entre DIV. Isso pode ser um problema, dependendo do seu layout. Para que o React não coloque entre DIVs use o Fragment
       <React.Fragment>
         <h1>Hello Rocketseat</h1>
-        <Button />
+        {/* Primeira forma de passar propriedades */}
+        {/* <Button title="Enviaaaaaaaar" /> */}
+
+        {/* Segunda forma de passar propriedades */}
+        <Button onClick={this.handleClick}>Enviar</Button>
       </React.Fragment>
     );
   }
