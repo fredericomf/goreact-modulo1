@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/fredericomf/goreact-modulo1#readme",
   "dependencies": {
+    "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },

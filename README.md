@@ -104,3 +104,11 @@ yarn add -D webpack-dev-server
   </body>
 </html>
 ```
+
+### PROP-TYPES
+
+Biblioteca para fazer tipagem no nosso código
+
+```bash
+yarn add prop-types
+```

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // NOTA_ESTUDO: Outra forma seria desestruturando o Component e Fragment assim:
 // import React, {Component, Fragment} from "react";
@@ -19,6 +20,15 @@ class Button extends React.Component {
   }
 }
 
+Button.defaultProps = {
+  children: "Salvar"
+};
+
+Button.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  children: PropTypes.string
+};
+
 class App extends React.Component {
   handleClick() {
     alert("Botão clicado");
@@ -34,6 +44,12 @@ class App extends React.Component {
 
         {/* Segunda forma de passar propriedades */}
         <Button onClick={this.handleClick}>Enviar</Button>
+
+        <Button
+          onClick={() => {
+            alert("Button 1");
+          }}
+        />
       </React.Fragment>
     );
   }
