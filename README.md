@@ -167,3 +167,111 @@ yarn add -D sass-loader node-sass
   use: ["style-loader", "css-loader", 'sass-loader']
 }
 ```
+
+## ESLINT e BABEL-ESLINT
+
+Serve para garantir que todos os programadores envolvidos no projeto utilizem uma mesma guia de estilos.
+
+Para saber mais: https://eslint.org
+
+_Lembrando que o eslint deve ser instalado como DEVELOPMENT MODE (yarn add eslint -D)_
+
+_NOTA: Depois de instalador não esquecer de rodar o comando:_
+
+```bash
+npx eslint --init
+```
+
+How would you like to configure ESLint?
+\> Use a popular style guide
+
+Witch style guide do you want to follow?
+\> Airbnb (https://github.com/airbnb/javascript)
+
+Do you use React?
+\> y
+
+What format do you want your config file to be in?
+\> JSON
+
+Would you like to install them now with npm?
+\> Y
+
+**Depois de rodar o comando acima, instalar o babel-eslint:**
+
+```bash
+yarn add -D babel-eslint
+```
+
+**_DEPOIS, APAGAR O ARQUIVO 'package-lock.json' E RODAR O COMANDO YARN NA RAIZ DO PROJETO. ISSO GARANTE USAR SÓ O YARN_**
+
+_NOTA: Ao retornarmos para um arquivo .js notaremos que os erros na nossa styleguide são marcados com linhas vermelhas (Isso depois de instalada a extenção do ESLint_
+
+**Redefinir o .eslintrc.json:**
+
+```javascript
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "plugins": ["react", "jsx-a11y", "import"],
+  "rules": {
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "global-require": "off",
+    "import/prefer-default-export": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ]
+  }
+}
+```
+
+## EDITOR CONFIG VSCODE
+
+Configurar o arquivo .editorconfig:
+
+```javascript
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+```
+
+## EXTENÇÃO CHROME: REACT DEVTOOLS
+
+Instalar a extenção React Devtools
+
+## PRETTIER
+
+1. Instalar a extenção VSCode - PRETTIER
+2. Instalar o prettier for eslint:
+
+```bash
+yarn add prettier-eslint -D
+```
+
+3. Configurar o preetier (CTRL + ,)
+
+```javascript
+"eslint.autoFixOnSave": true,
+"eslint.alwaysShowStatus": true,
+"editor.formatOnSave": true,
+"javascript.format.enable": false,
+"prettier.eslintIntegration": true
+```
