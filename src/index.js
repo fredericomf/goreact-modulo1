@@ -47,9 +47,18 @@ class App extends React.Component {
   handleClick = () => {
     // alert("Botão clicado");
     // this.state.counter += 1 // NOTA_ESTUDO: Isso dá erro porque eu não posso alterar diretamente o valor de um estado (O estado é imutável)
-
     // NOTA_ESTUDO: Para funções normais o escopo do 'this' é a pŕopria função. Usa-se arrow function para referenciar escopo da classe
-    this.setState({ counter: this.state.counter + 1 });
+    // this.setState({ counter: this.state.counter + 1 }); // NOTA_ESTUDO: setState é assíncrono!
+    // NOTA_ESTUDO: Exemplo de tratamento por callback após setState
+    // this.setState({ counter: this.state.counter + 1 }, () => {
+    //   console.log(this.state.counter);
+    // });
+    // NOTA_ESTUDO: O exemplo abaixo utiliza a arrowfunction recebendo o state na lista do setState. Assim, mesmo que assíncrono, o valor do state atualizado é passado para o próximo na lista de atualização.
+    // NOTA_ESTUDO: Muito pouco utilizado (alterar um state após o outro)
+    // this.setState(state => ({ counter: state.counter + 1 }));
+    // this.setState(state => ({ counter: state.counter + 1 }));
+
+    this.setState({ counter: this.state.counter + 1 }); // NOTA_ESTUDO: setState é assíncrono!
   };
 
   render() {
