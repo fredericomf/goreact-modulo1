@@ -1,32 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 // NOTA_ESTUDO: Outra forma seria desestruturando o Component e Fragment assim:
 // import React, {Component, Fragment} from "react";
 
 import { render } from "react-dom";
 
-class Button extends React.Component {
-  /**
-   * NOTA_ESTUDO: Para funcionar dentro da classe é necessário instalar um plugin do babel: proposal-class-properties (Consulte o Readme)
-   */
-  static defaultProps = {
-    children: "Salvar"
-  };
-
-  static propTypes = {
-    onClick: PropTypes.func.isRequired,
-    children: PropTypes.string
-  };
-
-  render() {
-    // Primeira forma de receber propriedades
-    // return <a href="">{this.props.title}</a>;
-
-    // Segunda forma de receber propriedades
-    return <button onClick={this.props.onClick}>{this.props.children}</button>;
-  }
-}
+import Button from "./Button";
 
 // NOTA_ESTUDO: Essa é a forma normal de definir, fora da classe, sem ajuda de plugin do babel
 // Button.defaultProps = {
