@@ -112,3 +112,17 @@ Biblioteca para fazer tipagem no nosso código
 ```bash
 yarn add prop-types
 ```
+
+### PROPOSAL-CLASS-PROPERTIES
+
+Plugin do Babel que permite definir os Default Properies e Types dentro da classe do componente React.
+
+```bash
+yarn add -D @babel/plugin-proposal-class-properties
+```
+
+**Adicionar definição .babelrc:**
+
+```javascript
+"plugins": ["@babel/plugin-proposal-class-properties"]
+```
