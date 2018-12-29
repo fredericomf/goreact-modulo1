@@ -23,6 +23,20 @@ class App extends React.Component {
     counter: 0
   };
 
+  // NOTA_ESTUDO: Executa automaticamente na inicialização do componente. Muito usado em inicializações de configs e listeners.
+  componentDidMount() {}
+
+  // NOTA_ESTUDO: Sempre que o componente for atualizado no state ou em uma propriedade.
+  shouldComponentUpdate(nextProps, nextState) {
+    // NOTA_ESTUDO: Se eu retornar 'false' ele não renderiza o componente...
+  }
+
+  // NOTA_ESTUDO: Ele é executado DEPOIS de sofrer a atualização (ao contrário do souldComponentUpdate)
+  componentDidUpdate(prevProps, prevState) {}
+
+  // NOTA_ESTUDO: Executa automaticamente quando o componente for removido. Muito usado para limpar listeners e outras coisas.
+  componentWillUnmount() {}
+
   handleClick = () => {
     // alert("Botão clicado");
     // this.state.counter += 1 // NOTA_ESTUDO: Isso dá erro porque eu não posso alterar diretamente o valor de um estado (O estado é imutável)
