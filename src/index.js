@@ -7,6 +7,8 @@ import { render } from "react-dom";
 
 import Button from "./Button";
 
+import "./style.scss";
+
 // NOTA_ESTUDO: Essa é a forma normal de definir, fora da classe, sem ajuda de plugin do babel
 // Button.defaultProps = {
 //   children: "Salvar"
@@ -29,6 +31,7 @@ class App extends React.Component {
   // NOTA_ESTUDO: Sempre que o componente for atualizado no state ou em uma propriedade.
   shouldComponentUpdate(nextProps, nextState) {
     // NOTA_ESTUDO: Se eu retornar 'false' ele não renderiza o componente...
+    return true;
   }
 
   // NOTA_ESTUDO: Ele é executado DEPOIS de sofrer a atualização (ao contrário do souldComponentUpdate)
@@ -58,7 +61,7 @@ class App extends React.Component {
     return (
       // NOTA_ESTUDO: Quando o componente tem mais de uma linha, o React obriga estar entre DIV. Isso pode ser um problema, dependendo do seu layout. Para que o React não coloque entre DIVs use o Fragment
       <React.Fragment>
-        <h1>Hello Rocketseat</h1>
+        <h1 style={{ color: "#F00" }}>Hello Rocketseat</h1>
         {/* Primeira forma de passar propriedades */}
         {/* <Button title="Enviaaaaaaaar" /> */}
 

@@ -126,3 +126,44 @@ yarn add -D @babel/plugin-proposal-class-properties
 ```javascript
 "plugins": ["@babel/plugin-proposal-class-properties"]
 ```
+
+### STYLE-LOADER e CSS_LOADER
+
+Para permitir que o javascript importe CSS
+
+```bash
+yarn add style-loader css-loader -D
+```
+
+**Adicionar regra ao webpack:**
+
+A forma como o professor passou, não funcionou:
+~~`javascript { test: /\.css$/, use: [ { loader: "style-loader", loader: "css-loader" } ] }`~~
+
+Pesquisando encontrei um exemplo de uso(que funcionou):
+
+```javascript
+{
+  test: /\.css$/,
+  use: ["style-loader", "css-loader"]
+}
+```
+
+[Fonte do código acima](https://github.com/webpack-contrib/css-loader)
+
+### SASS LOADER (Préprocessador de estilos)
+
+Plugin para webpack rodar préprocessador de estilos
+
+```bash
+yarn add -D sass-loader node-sass
+```
+
+**Adicionar regra 'css' do webpack para:**
+
+```javascript
+{
+  test: /\.scss$/,
+  use: ["style-loader", "css-loader", 'sass-loader']
+}
+```
