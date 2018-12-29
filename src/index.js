@@ -24,11 +24,7 @@ class Button extends React.Component {
     // return <a href="">{this.props.title}</a>;
 
     // Segunda forma de receber propriedades
-    return (
-      <a href="" onClick={this.props.onClick}>
-        {this.props.children}
-      </a>
-    );
+    return <button onClick={this.props.onClick}>{this.props.children}</button>;
   }
 }
 
@@ -43,9 +39,18 @@ class Button extends React.Component {
 // };
 
 class App extends React.Component {
-  handleClick() {
-    alert("Botão clicado");
-  }
+  // NOTA_ESTUDO: Toda vez que o state é alterado, o método render() é chamado
+  state = {
+    counter: 0
+  };
+
+  handleClick = () => {
+    // alert("Botão clicado");
+    // this.state.counter += 1 // NOTA_ESTUDO: Isso dá erro porque eu não posso alterar diretamente o valor de um estado (O estado é imutável)
+
+    // NOTA_ESTUDO: Para funções normais o escopo do 'this' é a pŕopria função. Usa-se arrow function para referenciar escopo da classe
+    this.setState({ counter: this.state.counter + 1 });
+  };
 
   render() {
     return (
@@ -58,11 +63,7 @@ class App extends React.Component {
         {/* Segunda forma de passar propriedades */}
         <Button onClick={this.handleClick}>Enviar</Button>
 
-        <Button
-          onClick={() => {
-            alert("Button 1");
-          }}
-        />
+        <h2>{this.state.counter}</h2>
       </React.Fragment>
     );
   }
