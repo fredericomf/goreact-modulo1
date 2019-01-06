@@ -12,6 +12,15 @@ Basicamente, esse comando criará o package.json.
 npm init -y
 ```
 
+### Scripts PACKAGE.JSON
+
+```javascript
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --mode development"
+},
+```
+
 ## INSTALAR DEPENDÊNCIAS
 
 ### REACT E REACT-DOM
@@ -96,10 +105,9 @@ yarn add -D webpack-dev-server
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>GoReact</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
   </head>
   <body>
+    <div id="app"></div>
     <script src="./bundle.js"></script>
   </body>
 </html>
